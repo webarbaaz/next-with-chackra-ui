@@ -1,26 +1,23 @@
-import { Container } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
+import { Container, ContainerProps } from "@chakra-ui/react";
+import React, { ReactNode } from "react";
 
-type Props = {
-  children: ReactNode
+interface Props extends Omit<ContainerProps, "children"> {
+  children: ReactNode;
+  as?: React.ElementType;
 }
 
-export default function MyContainer({
-  children,
-  ...props
-}: Props) {
+export default function MyContainer({ children, ...props }: Props) {
   return (
     <Container
       {...props}
       px={{ base: 2, md: 4 }}
-      width={'100%'}
+      width={"100%"}
       maxW={{
-        lg: 'container.xl',
-        xl: '1400px',
+        lg: "container.xl",
+        xl: "1400px",
       }}
-      mx={'auto'}
-    >
+      mx={"auto"}>
       {children}
     </Container>
-  )
+  );
 }
