@@ -5,6 +5,7 @@ import { Provider } from "@/components/ui/provider";
 import { Container } from "@chakra-ui/react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MyContainer from "@/components/layout/MyContainer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,13 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Provider>
           <Header />
-          <Container mx={'auto'} px={2}>
-            {children}
-          </Container>
+          <MyContainer>{children}</MyContainer>
           <Footer />
         </Provider>
       </body>
