@@ -1,12 +1,6 @@
-import React from 'react'
-import MyContainer from './MyContainer'
+import React from "react";
+import MyContainer from "./MyContainer";
 
-type Props = {}
-
-export default function Footer({ }: Props) {
-    return (
-        <MyContainer>
-            Footer
-        </MyContainer>
-    )
+export default function Footer() {
+  return <MyContainer>Footer</MyContainer>;
 }

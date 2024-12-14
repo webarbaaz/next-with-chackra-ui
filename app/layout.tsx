@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
-import { Container } from "@chakra-ui/react";
-import Header from "@/components/layout/Header";
+import { Container, Grid, GridItem } from "@chakra-ui/react";
 import Footer from "@/components/layout/Footer";
 import MyContainer from "@/components/layout/MyContainer";
+import SideBar from "@/components/layout/SideBar";
+import Header from "@/components/layout/Header/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,9 +33,22 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Provider>
-          <Header />
-          <MyContainer>{children}</MyContainer>
-          <Footer />
+          <Grid
+            as={Container}
+            maxW={"container.xl"}
+            mx={"auto"}
+            w={"full"}
+            templateColumns={{ base: "1fr", lg: "3fr 1fr" }}
+            gap={4}>
+            <GridItem>
+              <Header />
+              {children}
+              <Footer />
+            </GridItem>
+            <GridItem hideBelow={"lg"}>
+              <SideBar />
+            </GridItem>
+          </Grid>
         </Provider>
       </body>
     </html>
